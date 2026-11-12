@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Time-clock state lives in a React context (`src/lib/timeclock.tsx`) mounted in `__root` so every tab shares punches; it is in-memory demo data until a backend is added.
+- The app shell is mobile-first: content capped at `max-w-md` with a fixed bottom tab bar in `__root`; each tab is its own route file.
