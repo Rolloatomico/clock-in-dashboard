@@ -1,3 +1,13 @@
 # Roadmap
 - [x] Plantilla visual de app de checadas de tiempo
 - [x] Diseño para celular (pantalla angosta, menú inferior)
+- [ ] Cuentas: supervisor da de alta (nombre, puesto, ID, planta, correo); empleado se registra con su ID de empleado + correo
+- [ ] Primer supervisor: pantalla de configuración inicial
+- [ ] Recuperar clave por correo
+- [ ] Checadas guardadas en Lovable Cloud: entrada, salida temporal, regreso, salida; cada quien ve solo las suyas
+- [ ] Ubicación GPS: valida que la checada esté dentro de la zona de la planta
+- [ ] Historial por semana y por día: horas trabajadas, horas extra, retardos, salidas del turno
+- [ ] Exportar a Excel (propio y del equipo)
+- [ ] Equipo solo supervisores: estado en vivo, alta de empleados, plantas con zona GPS
+- [ ] Ajustes: perfil con foto, horario (hora de entrada), cerrar sesión
+- [ ] Pendiente / no incluido por ahora: entrar con huella, foto en cada checada, modo sin conexión, notificaciones, sesiones activas, exportar PDF
