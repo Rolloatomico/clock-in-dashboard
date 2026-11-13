@@ -102,12 +102,12 @@ function CheckScreen() {
         )}
 
         {status === "turno" && (
-          <Button variant="paper" size="lg" className="w-full rounded-xl" onClick={() => punch("salida_temporal")}>
+          <Button variant="paper" size="lg" className="w-full" onClick={() => punch("salida_temporal")}>
             <Coffee /> Salida temporal
           </Button>
         )}
         {status === "salida_temporal" && (
-          <Button variant="ink" size="lg" className="w-full rounded-xl" onClick={() => punch("regreso")}>
+          <Button variant="ink" size="lg" className="w-full" onClick={() => punch("regreso")}>
             <Play /> Checar regreso
           </Button>
         )}

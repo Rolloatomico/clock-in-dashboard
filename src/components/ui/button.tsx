@@ -18,9 +18,9 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         punch:
           "bg-primary text-primary-foreground shadow-punch font-display font-extrabold uppercase tracking-wide hover:brightness-105 active:translate-y-1 active:shadow-none transition-all",
-        ink: "bg-ink text-ink-foreground shadow-sm hover:bg-ink/90 font-semibold",
+        ink: "rounded-none bg-ink text-ink-foreground shadow-sm hover:bg-ink/90 font-semibold",
         paper:
-          "border-2 border-ink bg-card text-foreground font-semibold hover:bg-secondary",
+          "rounded-none border-2 border-ink bg-card text-foreground font-semibold hover:bg-secondary",
       },
       size: {
         default: "h-9 px-4 py-2",
