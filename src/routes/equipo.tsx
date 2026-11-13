@@ -19,12 +19,12 @@ export const Route = createFileRoute("/equipo")({
   component: TeamScreen,
 });
 
-type S = "turno" | "descanso" | "fuera";
+type S = "turno" | "salida_temporal" | "fuera";
 // Sample team for the template.
 const team: { name: string; role: string; status: S; since: string }[] = [
   { name: "Mariana Ruiz", role: "Supervisora", status: "turno", since: "08:02" },
   { name: "Jorge Salinas", role: "Soldador", status: "turno", since: "07:55" },
-  { name: "Lucía Herrera", role: "Almacén", status: "descanso", since: "11:10" },
+  { name: "Lucía Herrera", role: "Almacén", status: "salida_temporal", since: "11:10" },
   { name: "Ramón Treviño", role: "Montacargas", status: "turno", since: "08:14" },
   { name: "Ana Cantú", role: "Calidad", status: "fuera", since: "Ayer 16:03" },
   { name: "Diego Garza", role: "Mantenimiento", status: "turno", since: "06:58" },
@@ -44,7 +44,7 @@ function TeamScreen() {
   const filters: { key: S | "todos"; label: string; n: number }[] = [
     { key: "todos", label: "Todos", n: team.length },
     { key: "turno", label: "En turno", n: count("turno") },
-    { key: "descanso", label: "Descanso", n: count("descanso") },
+    { key: "salida_temporal", label: "Descanso", n: count("salida_temporal") },
     { key: "fuera", label: "Fuera", n: count("fuera") },
   ];
 
@@ -54,7 +54,7 @@ function TeamScreen() {
       <div className="space-y-4 px-5">
         <section className="grid grid-cols-3 gap-2">
           <Count n={count("turno")} label="En turno" cls="bg-success text-success-foreground" />
-          <Count n={count("descanso")} label="Descanso" cls="bg-warning text-warning-foreground" />
+          <Count n={count("salida_temporal")} label="Descanso" cls="bg-warning text-warning-foreground" />
           <Count n={count("fuera")} label="Fuera" cls="bg-card text-foreground" />
         </section>
 

@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { TimeclockProvider } from "../lib/timeclock";
+import { TimeclockProvider } from "../lib/demo-clock";
 import { BottomNav } from "../components/timeclock/BottomNav";
 
 function NotFoundComponent() {
@@ -136,7 +136,7 @@ function RootComponent() {
         <div className="mx-auto min-h-dvh max-w-md pb-32">
           <Outlet />
         </div>
-        <BottomNav />
+        <BottomNav isSupervisor />
       </TimeclockProvider>
     </QueryClientProvider>
   );

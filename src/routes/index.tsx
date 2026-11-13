@@ -3,15 +3,10 @@ import { Coffee, Fingerprint, LogOut, MapPin, Play } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { StatusPill } from "@/components/timeclock/ScreenHeader";
-import {
-  SHIFT_GOAL_MS,
-  fmtClock,
-  fmtDur,
-  punchLabel,
-  totals,
-  useNow,
-  useTimeclock,
-} from "@/lib/timeclock";
+import { useNow, useTimeclock } from "@/lib/demo-clock";
+import { H, fmtClock, fmtDur, punchLabel, totals } from "@/lib/timeclock";
+
+const SHIFT_GOAL_MS = 8 * H;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,7 +25,7 @@ export const Route = createFileRoute("/")({
 function CheckScreen() {
   const now = useNow();
   const { punches, status, punch } = useTimeclock();
-  const { worked, rest } = totals(punches, now ?? 0);
+  const { worked, away: rest } = totals(punches, now ?? 0);
   const progress = Math.min(1, worked / SHIFT_GOAL_MS);
   const last = punches.at(-1);
 
@@ -107,13 +102,13 @@ function CheckScreen() {
         )}
 
         {status === "turno" && (
-          <Button variant="paper" size="lg" className="w-full rounded-xl" onClick={() => punch("descanso")}>
-            <Coffee /> Iniciar descanso
+          <Button variant="paper" size="lg" className="w-full rounded-xl" onClick={() => punch("salida_temporal")}>
+            <Coffee /> Salida temporal
           </Button>
         )}
-        {status === "descanso" && (
+        {status === "salida_temporal" && (
           <Button variant="ink" size="lg" className="w-full rounded-xl" onClick={() => punch("regreso")}>
-            <Play /> Terminar descanso
+            <Play /> Checar regreso
           </Button>
         )}
       </section>
@@ -145,7 +140,7 @@ function CheckScreen() {
                   className={`size-2.5 rounded-full ${
                     p.type === "entrada" || p.type === "regreso"
                       ? "bg-success"
-                      : p.type === "descanso"
+                      : p.type === "salida_temporal"
                         ? "bg-warning"
                         : "bg-primary"
                   }`}
